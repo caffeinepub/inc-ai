@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Building INC.ai — a ChatGPT-style chatbot with multiple chat sessions, chat history/memory, Internet Identity authentication, powered by Pollinations AI (no API key required), and a minimalist dark UI with red accents.",
+  "architectural_notes": [
+    "Uses Pollinations AI free REST API for LLM responses — no API key required",
+    "Authentication via Internet Identity (ICP)"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-internet-identity-authentication-so-users-can-log-in-and-log-out-authenticated-user-principal-should-be-used-to-scope-their-chat-sessions-on-the-backend",
+      "title": "Implement Internet Identity authentication so users can log in and log out. Authenticated user principal should be used to scope their chat sessions on the backend.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-sidebar-ui-panel-listing-all-of-the-authenticated-user-s-chat-sessions-each-session-shows-its-title-and-creation-date-users-can-create-a-new-session-auto-named-new-chat-or-using-first-user-message-switch-between-sessions-rename-a-session-and-delete-a-session-the-sidebar-should-be-collapsible",
+      "title": "Build a sidebar UI panel listing all of the authenticated user's chat sessions. Each session shows its title and creation date. Users can create a new session (auto-named 'New Chat' or using first user message), switch between sessions, rename a session, and delete a session. The sidebar should be collapsible.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-main-chat-interface-showing-the-message-history-of-the-active-session-messages-should-be-displayed-in-a-scrollable-thread-with-clear-visual-distinction-between-user-messages-right-aligned-red-accent-and-assistant-messages-left-aligned-dark-card-include-a-text-input-area-and-send-button-at-the-bottom-the-chat-area-should-auto-scroll-to-the-latest-message",
+      "title": "Build the main chat interface showing the message history of the active session. Messages should be displayed in a scrollable thread with clear visual distinction between user messages (right-aligned, red accent) and assistant messages (left-aligned, dark card). Include a text input area and send button at the bottom. The chat area should auto-scroll to the latest message.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-minimalist-dark-ui-theme-across-the-entire-application-with-the-inc-ai-brand-use-a-near-black-background-0f0f0f-or-similar-deep-dark-surface-cards-1a1a1a-and-bold-red-as-the-primary-accent-color-e53935-or-similar-typography-should-be-clean-and-modern-the-header-navbar-should-display-the-inc-ai-logo-wordmark-prominently",
+      "title": "Apply a minimalist dark UI theme across the entire application with the INC.ai brand. Use a near-black background (#0f0f0f or similar), deep dark surface cards (#1a1a1a), and bold red as the primary accent color (#e53935 or similar). Typography should be clean and modern. The header/navbar should display the 'INC.ai' logo/wordmark prominently.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-collapse-the-sidebar-by-default-on-small-screens-mobile-breakpoint-the-sidebar-should-render-as-hidden-closed-on-initial-load-for-viewports-smaller-than-the-md-breakpoint-with-a-visible-hamburger-toggle-button-in-the-header-or-chat-area-to-open-it-as-an-overlay-or-drawer",
+      "title": "Collapse the sidebar by default on small screens (mobile breakpoint). The sidebar should render as hidden/closed on initial load for viewports smaller than the 'md' breakpoint, with a visible hamburger/toggle button in the header or chat area to open it as an overlay or drawer.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-touch-targets-throughout-the-application-for-mobile-usability-all-interactive-elements-buttons-session-list-items-delete-icons-send-button-input-area-must-have-a-minimum-tap-target-size-of-44x44px-on-small-screens",
+      "title": "Improve touch targets throughout the application for mobile usability. All interactive elements (buttons, session list items, delete icons, send button, input area) must have a minimum tap target size of 44x44px on small screens.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-input-visibility-on-mobile-the-messageinput-textarea-and-send-button-must-remain-visible-and-accessible-when-the-mobile-keyboard-is-open-the-chat-input-bar-should-stay-anchored-to-the-bottom-of-the-visible-viewport-and-not-be-hidden-behind-the-keyboard",
+      "title": "Fix input visibility on mobile. The MessageInput textarea and send button must remain visible and accessible when the mobile keyboard is open. The chat input bar should stay anchored to the bottom of the visible viewport and not be hidden behind the keyboard.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-mobile-first-layout-improvements-across-the-full-application-the-overall-layout-header-sidebar-chatarea-should-use-a-single-column-stacked-layout-on-small-screens-with-the-header-at-the-top-full-width-chat-area-and-sidebar-as-an-overlay-padding-font-sizes-and-spacing-should-be-appropriate-for-small-screens",
+      "title": "Apply mobile-first layout improvements across the full application. The overall layout (Header, Sidebar, ChatArea) should use a single-column stacked layout on small screens, with the header at the top, full-width chat area, and sidebar as an overlay. Padding, font sizes, and spacing should be appropriate for small screens.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "AI chat powered by Pollinations AI (no API key required)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Multiple chat sessions with sidebar (create, switch, manage conversations)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Chat history and conversation memory within each session",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "User authentication via Internet Identity",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Minimalist dark UI with red accents and INC.ai branding",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Build a backend (Motoko single actor) that stores multiple named chat sessions per user. Each session stores an ordered list of messages (role: user or assistant, content: text, timestamp). Expose query and update calls for: creating a new session, listing sessions for a user, retrieving messages in a session, appending a message to a session, and deleting a session.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Integrate Pollinations AI REST API (https://text.pollinations.ai/) on the frontend to generate AI responses. When a user sends a message, send the full conversation history as context to the API (no API key required) and display the streamed or returned response as the assistant reply. Save the assistant reply to the backend session.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Optimize INC.ai for mobile: collapse sidebar by default on small screens, improve touch targets, fix input visibility, and apply mobile-first layout improvements.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "INC.ai",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,154 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Optimize INC.ai for Mobile",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Collapse sidebar by default on mobile with hamburger toggle",
+      "acceptanceCriteria": [
+        "On screens narrower than the 'md' breakpoint, the sidebar is closed/hidden by default on page load.",
+        "A toggle button is visible to open/close the sidebar on mobile.",
+        "On desktop (md+), the sidebar behaves as it does today (collapsible but visible by default).",
+        "Opening the sidebar on mobile shows it as a drawer or overlay without pushing layout."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Sidebar.tsx",
+          "operation": "modify",
+          "description": "Add mobile-responsive state management: initialize sidebar as closed on mobile screens (below md breakpoint) and open on desktop. Implement a hamburger toggle button that appears only on mobile. Change the sidebar to render as a fixed overlay/drawer on mobile that covers the chat area when open, using a backdrop/overlay behind it. Preserve the existing collapse functionality for desktop."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Add a hamburger menu button (visible only on mobile, hidden on md+ screens) that triggers the sidebar open/close state. Position it on the left side of the header. Pass the sidebar toggle handler down from App.tsx or lift sidebar state to a shared context."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Lift sidebar open/close state to App.tsx to coordinate between Header (hamburger button) and Sidebar (drawer). Pass the mobile sidebar state and toggle handler to both Header and Sidebar components. Ensure the layout adjusts so the sidebar overlay does not push the chat area on mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Improve touch targets for mobile usability (44x44px minimum)",
+      "acceptanceCriteria": [
+        "Buttons and interactive icons have at least 44px height/width on mobile.",
+        "Session items in the sidebar are tall enough to tap comfortably on a touch screen.",
+        "The send button in MessageInput is visually large enough for touch interaction."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SessionItem.tsx",
+          "operation": "modify",
+          "description": "Increase the minimum height of session list items to at least 44px on mobile (use responsive Tailwind classes like min-h-11 on small screens). Ensure adequate padding around the session name and delete button. Make the delete button icon larger and ensure its clickable area is at least 44x44px."
+        },
+        {
+          "path": "frontend/src/components/MessageInput.tsx",
+          "operation": "modify",
+          "description": "Increase the send button size on mobile to meet the 44x44px minimum touch target. Use responsive Tailwind sizing (e.g., h-11 w-11 on mobile, scaling as needed). Ensure the button remains visually balanced with the input area."
+        },
+        {
+          "path": "frontend/src/components/Sidebar.tsx",
+          "operation": "modify",
+          "description": "Ensure the new chat button and collapse toggle button meet the 44x44px minimum touch target on mobile. Adjust padding and icon sizes for comfortable tapping."
+        },
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "modify",
+          "description": "Ensure the login/logout button has adequate padding and height to meet the 44px minimum touch target on mobile screens. Use responsive Tailwind classes (e.g., py-3 px-6 on mobile)."
+        },
+        {
+          "path": "frontend/src/components/DeleteSessionDialog.tsx",
+          "operation": "modify",
+          "description": "Ensure dialog action buttons (Cancel, Delete) have adequate size for touch interaction on mobile (minimum 44px height). Adjust padding and spacing as needed."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Fix input visibility when mobile keyboard is open",
+      "acceptanceCriteria": [
+        "When the virtual keyboard appears on mobile, the message input bar remains visible above it.",
+        "The chat message list scrolls to accommodate the keyboard without hiding the input.",
+        "The input bar does not overflow or get clipped on small screens."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ChatArea.tsx",
+          "operation": "modify",
+          "description": "Adjust the layout to ensure MessageInput remains visible when the mobile keyboard opens. Use viewport height units (vh or dvh) and flexible layout (flex-1 with overflow) so the message list scrolls within available space while the input bar stays anchored. Add a useEffect to scroll the message list to the bottom when the keyboard opens (listen for resize or focus events)."
+        },
+        {
+          "path": "frontend/src/components/MessageInput.tsx",
+          "operation": "modify",
+          "description": "Ensure the input bar uses sticky or fixed positioning within its container to remain visible above the keyboard. Add focus handling to scroll the input into view if needed. Test that the textarea does not overflow or get clipped on small screens."
+        },
+        {
+          "path": "frontend/src/components/MessageList.tsx",
+          "operation": "modify",
+          "description": "Ensure the message list container uses overflow-y-auto and flex-1 to scroll within the available viewport space when the keyboard is open. Add a scroll-to-bottom behavior when the input gains focus or when a new message is added."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Apply mobile-first layout improvements across the application",
+      "acceptanceCriteria": [
+        "On small screens, the chat area takes full viewport width.",
+        "The header is responsive and does not overflow on small screens.",
+        "Font sizes and padding are legible and comfortable on a 375px-wide screen.",
+        "No horizontal scroll is present on mobile viewports.",
+        "The LoginScreen and ProfileSetupModal are also readable on mobile."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Adjust the main layout to use a single-column stacked layout on mobile (header at top, chat area full width, sidebar as overlay). Use responsive Tailwind classes to switch from the current side-by-side desktop layout to a stacked mobile layout below the md breakpoint. Ensure no horizontal overflow."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Make the header responsive for mobile: reduce logo size on small screens if needed, ensure the user avatar and login button do not overflow, and adjust padding/spacing for a 375px viewport. Use text truncation or smaller font sizes for the user name on mobile."
+        },
+        {
+          "path": "frontend/src/components/ChatArea.tsx",
+          "operation": "modify",
+          "description": "Ensure ChatArea takes full viewport width on mobile (remove any fixed widths). Adjust padding and spacing for small screens. Ensure the empty state and message list are readable on a 375px-wide screen."
+        },
+        {
+          "path": "frontend/src/components/LoginScreen.tsx",
+          "operation": "modify",
+          "description": "Make LoginScreen responsive for mobile: stack feature cards vertically on small screens, reduce logo size, adjust font sizes for headings and body text, and ensure adequate padding/spacing for a 375px viewport. Ensure the login button is sized appropriately for touch."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "modify",
+          "description": "Make ProfileSetupModal responsive for mobile: ensure the modal width and padding work on small screens, adjust font sizes for headings and labels, and ensure the input and save button are touch-friendly. Test on a 375px-wide screen."
+        },
+        {
+          "path": "frontend/src/components/Message.tsx",
+          "operation": "modify",
+          "description": "Adjust message bubble styling for mobile: reduce padding and font sizes on small screens if needed, ensure avatars are appropriately sized, and ensure user and AI message bubbles do not overflow on a 375px viewport. Use responsive Tailwind classes."
+        },
+        {
+          "path": "frontend/src/components/EmptyState.tsx",
+          "operation": "modify",
+          "description": "Make EmptyState responsive for mobile: reduce logo size, adjust feature card layout to stack vertically on small screens, and ensure font sizes and spacing are comfortable on a 375px viewport."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add mobile-first responsive typography and spacing utilities if needed. Ensure base font sizes and line heights are legible on small screens. Add media queries for mobile-specific adjustments to global styles (e.g., body padding, scrollbar width)."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Review and adjust Tailwind configuration for mobile-first breakpoints. Ensure the 'md' breakpoint is appropriate (typically 768px). Add any custom spacing or sizing utilities needed for mobile touch targets and layout."
+        }
+      ]
+    }
+  ]
+}

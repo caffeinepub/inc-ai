@@ -1,0 +1,21 @@
+{
+  "frontend/src/index.css": "Global styles with mobile-first additions: overflow-x hidden, 100% html/body height for dvh support, overscroll-behavior-y none, tap highlight removal, and responsive scrollbar widths.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with INC.ai brand colors (inc-red, inc-surface), Space Grotesk display font, custom animations (fade-in, slide-in), and red glow box shadows.",
+  "frontend/src/context/ChatContext.tsx": "React context providing activeSession state and setActiveSession setter to manage which chat session is currently selected across the app.",
+  "frontend/src/hooks/useQueries.ts": "Centralized React Query hooks for all backend operations: user profile (get/save), sessions (list/create/delete), messages (get/add), and the AI send-message mutation that calls Pollinations AI and saves responses.",
+  "frontend/src/components/LoginButton.tsx": "Login/logout button with 44px minimum height, icon-only on mobile (text hidden below sm breakpoint), using cn() from utils.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Profile setup dialog with responsive width (calc(100vw-2rem)), larger input height (h-11), and 48px submit button for comfortable mobile interaction.",
+  "frontend/src/components/Header.tsx": "App header with hamburger menu button (mobile-only, md:hidden) that toggles the sidebar, responsive logo sizing, and truncated username on small screens.",
+  "frontend/src/components/DeleteSessionDialog.tsx": "Delete confirmation dialog with full-width stacked buttons on mobile, 48px minimum button height, and responsive max-width.",
+  "frontend/src/components/SessionItem.tsx": "Session list item with 48px minimum height for touch targets, onSelect callback to close mobile sidebar after selection, and larger delete button hit area.",
+  "frontend/src/components/Sidebar.tsx": "Dual-mode sidebar — desktop in-flow collapsible panel (hidden on mobile) and mobile fixed overlay drawer that slides in from the left with a backdrop, both with 44px+ touch targets.",
+  "frontend/src/components/TypingIndicator.tsx": "Animated three-dot typing indicator shown while waiting for AI response, styled to match assistant message appearance.",
+  "frontend/src/components/Message.tsx": "Message bubbles with 88% max-width on mobile (vs 75% on desktop), break-words overflow handling, and responsive padding/avatar sizing.",
+  "frontend/src/components/EmptyState.tsx": "Welcome screen with responsive icon/text sizing, single-column feature cards on mobile, and constrained max-widths for small viewports.",
+  "frontend/src/components/MessageList.tsx": "Scrollable message thread with data-message-list attribute for programmatic scroll control and responsive padding for mobile screens.",
+  "frontend/src/components/MessageInput.tsx": "Auto-resizing textarea input with 44px minimum send button, focus handler to scroll into view on mobile keyboard open, and responsive padding.",
+  "frontend/src/components/ChatArea.tsx": "Main chat interface with min-w-0 to prevent overflow, viewport resize listener to scroll messages when keyboard opens, and responsive padding.",
+  "frontend/src/components/LoginScreen.tsx": "Full-page login screen with mobile-first layout, 100dvh height, responsive sizing for brand elements and feature cards, and a large 52px login button.",
+  "frontend/src/App.tsx": "Root app component with lifted sidebar open/close state, mobile overlay backdrop, responsive layout using 100dvh, and hamburger toggle passed to Header and Sidebar.",
+  "frontend/src/lib/utils.ts": "Utility function cn() combining clsx and tailwind-merge for conditional class name composition."
+}

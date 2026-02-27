@@ -1,0 +1,98 @@
+{
+  "kind": "build_request",
+  "title": "Optimize INC.ai for Mobile",
+  "projectName": "INC.ai",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Collapse the sidebar by default on small screens (mobile breakpoint). The sidebar should render as hidden/closed on initial load for viewports smaller than the 'md' breakpoint, with a visible hamburger/toggle button in the header or chat area to open it as an overlay or drawer.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-yes"
+        ],
+        "quotes": [
+          "Optimize INC.ai for mobile: collapse sidebar by default on small screens"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On screens narrower than the 'md' breakpoint, the sidebar is closed/hidden by default on page load.",
+        "A toggle button is visible to open/close the sidebar on mobile.",
+        "On desktop (md+), the sidebar behaves as it does today (collapsible but visible by default).",
+        "Opening the sidebar on mobile shows it as a drawer or overlay without pushing layout."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Improve touch targets throughout the application for mobile usability. All interactive elements (buttons, session list items, delete icons, send button, input area) must have a minimum tap target size of 44x44px on small screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-yes"
+        ],
+        "quotes": [
+          "improve touch targets"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Buttons and interactive icons have at least 44px height/width on mobile.",
+        "Session items in the sidebar are tall enough to tap comfortably on a touch screen.",
+        "The send button in MessageInput is visually large enough for touch interaction."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Fix input visibility on mobile. The MessageInput textarea and send button must remain visible and accessible when the mobile keyboard is open. The chat input bar should stay anchored to the bottom of the visible viewport and not be hidden behind the keyboard.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-yes"
+        ],
+        "quotes": [
+          "fix input visibility"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When the virtual keyboard appears on mobile, the message input bar remains visible above it.",
+        "The chat message list scrolls to accommodate the keyboard without hiding the input.",
+        "The input bar does not overflow or get clipped on small screens."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Apply mobile-first layout improvements across the full application. The overall layout (Header, Sidebar, ChatArea) should use a single-column stacked layout on small screens, with the header at the top, full-width chat area, and sidebar as an overlay. Padding, font sizes, and spacing should be appropriate for small screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-yes"
+        ],
+        "quotes": [
+          "apply mobile-first layout improvements"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On small screens, the chat area takes full viewport width.",
+        "The header is responsive and does not overflow on small screens.",
+        "Font sizes and padding are legible and comfortable on a 375px-wide screen.",
+        "No horizontal scroll is present on mobile viewports.",
+        "The LoginScreen and ProfileSetupModal are also readable on mobile."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not change backend logic or data models.",
+    "Do not modify files in frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui.",
+    "Preserve all existing desktop functionality and layout."
+  ],
+  "nonGoals": [
+    "Building a native mobile app or PWA.",
+    "Changing the dark theme or brand colors.",
+    "Adding new chat or session features.",
+    "Changing backend API or Motoko code."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-collapse-the-sidebar-by-default-on-small-screens-mobile-breakpoint-the-sidebar-should-render-as-hidden-closed-on-initial-load-for-viewports-smaller-than-the-md-breakpoint-with-a-visible-hamburger-toggle-button-in-the-header-or-chat-area-to-open-it-as-an-overlay-or-drawer",
+      "featureTitle": "Collapse the sidebar by default on small screens (mobile breakpoint). The sidebar should render as hidden/closed on initial load for viewports smaller than the 'md' breakpoint, with a visible hamburger/toggle button in the header or chat area to open it as an overlay or drawer.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/Sidebar.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-improve-touch-targets-throughout-the-application-for-mobile-usability-all-interactive-elements-buttons-session-list-items-delete-icons-send-button-input-area-must-have-a-minimum-tap-target-size-of-44x44px-on-small-screens",
+      "featureTitle": "Improve touch targets throughout the application for mobile usability. All interactive elements (buttons, session list items, delete icons, send button, input area) must have a minimum tap target size of 44x44px on small screens.",
+      "files": [
+        "frontend/src/components/DeleteSessionDialog.tsx",
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/MessageInput.tsx",
+        "frontend/src/components/SessionItem.tsx",
+        "frontend/src/components/Sidebar.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-input-visibility-on-mobile-the-messageinput-textarea-and-send-button-must-remain-visible-and-accessible-when-the-mobile-keyboard-is-open-the-chat-input-bar-should-stay-anchored-to-the-bottom-of-the-visible-viewport-and-not-be-hidden-behind-the-keyboard",
+      "featureTitle": "Fix input visibility on mobile. The MessageInput textarea and send button must remain visible and accessible when the mobile keyboard is open. The chat input bar should stay anchored to the bottom of the visible viewport and not be hidden behind the keyboard.",
+      "files": [
+        "frontend/src/components/ChatArea.tsx",
+        "frontend/src/components/MessageInput.tsx",
+        "frontend/src/components/MessageList.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-mobile-first-layout-improvements-across-the-full-application-the-overall-layout-header-sidebar-chatarea-should-use-a-single-column-stacked-layout-on-small-screens-with-the-header-at-the-top-full-width-chat-area-and-sidebar-as-an-overlay-padding-font-sizes-and-spacing-should-be-appropriate-for-small-screens",
+      "featureTitle": "Apply mobile-first layout improvements across the full application. The overall layout (Header, Sidebar, ChatArea) should use a single-column stacked layout on small screens, with the header at the top, full-width chat area, and sidebar as an overlay. Padding, font sizes, and spacing should be appropriate for small screens.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ChatArea.tsx",
+        "frontend/src/components/EmptyState.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/LoginScreen.tsx",
+        "frontend/src/components/Message.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
